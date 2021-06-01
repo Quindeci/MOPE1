@@ -10,6 +10,8 @@ def regression(x, b):
     return y
 
 
+
+
 def dispersion(y, y_aver, n, m):
     res = []
     for i in range(n):
@@ -330,3 +332,9 @@ if __name__ == '__main__':
     y_min = 200 + int(sum([x[0] for x in x_range]) / 3)
 
     main(8, 3)
+    total_sig_coefs_q = 0
+    n = 100
+    for _ in range(n):
+        main(7, 8)
+        total_sig_coefs_q += sig_coefs_n
+    print("\nКількість значущих коефіцієнтів за {} виконань програми: {}".format(n, total_sig_coefs_q))

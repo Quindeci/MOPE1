@@ -103,6 +103,7 @@ def plan_matrix5(n, m):
     return x, y, x_norm
 
 
+
 def find_coef(X, Y, norm=False):
     skm = lm.LinearRegression(fit_intercept=False)
     skm.fit(X, Y)
@@ -118,6 +119,7 @@ def find_coef(X, Y, norm=False):
     return B
 
 
+
 def kriteriy_cochrana(y, y_aver, n, m):
     f1 = m - 1
     f2 = n
@@ -126,6 +128,7 @@ def kriteriy_cochrana(y, y_aver, n, m):
     Gp = max(S_kv) / sum(S_kv)
     print('\nПеревірка за критерієм Кохрена')
     return Gp
+
 
 
 def cohren(f1, f2, q=0.05):
@@ -144,6 +147,7 @@ def bs(x, y_aver, n):
     return res
 
 
+
 def kriteriy_studenta(x, y, y_aver, n, m):
     S_kv = s_kv(y, y_aver, n, m)
     s_kv_aver = sum(S_kv) / n
@@ -157,7 +161,9 @@ def kriteriy_studenta(x, y, y_aver, n, m):
 
 
 def kriteriy_fishera(y, y_aver, y_new, n, m, d):
-    S_ad = m / (n - d) * sum([(y_new[i] - y_aver[i]) ** 2 for i in range(len(y))])
+    S_ad = m / (n - d) * sum([(y_new[i] - y_aver[i]) ** 2 for i in range(
+
+        len(y))])
     S_kv = s_kv(y, y_aver, n, m)
     S_kv_aver = sum(S_kv) / n
 
@@ -179,6 +185,8 @@ def check(X, Y, B, n, m):
     ###
 
     y_aver = [round(sum(i) / len(i), 3) for i in Y]
+
+
     print('\nСереднє значення y:', y_aver)
 
     disp = s_kv(Y, y_aver, n, m)
@@ -226,6 +234,11 @@ def check(X, Y, B, n, m):
     else:
         print('Математична модель не адекватна експериментальним даним')
 
+
+if Gp < cohren_cr_table:
+        print(f'З ймовірністю {1-q} дисперсії однорідні.')
+    else:
+        print("Необхідно збільшити кількість дослідів")
 
 def main(n, m):
     X5, Y5, X5_norm = plan_matrix5(n, m)

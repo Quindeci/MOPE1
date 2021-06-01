@@ -33,6 +33,9 @@ Romanovsky criteria start
 """
 
 
+
+
+
 def romanovsky_criteria(y1: np.array, y2: np.array, y3: np.array):
     def sigma_theta(m):
         return math.sqrt(abs(2*(2*m-2)/(m*(m-4))))
@@ -76,6 +79,9 @@ def romanovsky_criteria(y1: np.array, y2: np.array, y3: np.array):
     return accordance
 
 
+
+
+
 # Romanovsky criteria was tested for these experiment values (all rows' variations are drastically different)
 # to ensure correctness of our romanovsky_criteria() function:
 #
@@ -90,6 +96,8 @@ Romanovsky criteria end
 
 Regression coefficients search start
 """
+
+
 
 
 def experiment():
@@ -128,6 +136,9 @@ def normalized_regression_coeffs():
     return  b_coeffs
 
 
+
+
+
 def assert_normalized_regression():
     global b_coeffs
     global x_table
@@ -152,6 +163,9 @@ Regression coefficients search end
 """
 
 
+
+
+
 def naturalized_regression(b_coeffs: list):
     v = globals()
     global x1_max
@@ -166,6 +180,8 @@ def naturalized_regression(b_coeffs: list):
     a1 = b_coeffs[1]/x1
     a2 = b_coeffs[2]/x2
     return [a0, a1, a2]
+
+
 
 
 def assert_naturalized_regression():
@@ -188,6 +204,8 @@ def assert_naturalized_regression():
     print("Правильні результати натуралізації")
 
 
+
+
 m = 5
 y_table = experiment()
 
@@ -198,7 +216,7 @@ while not romanovsky_criteria(*y_table):
 labels_table = ["x1", "x2"] + ["y{}".format(i+1) for i in range(m)]
 rows_table = [naturalized_x_table[i] + list(y_table[i]) for i in range(3)]
 rows_normalized_table = [x_table[i] + list(y_table[i]) for i in range(3)]
-
+    if m>20 (програма зав)
 print("Матриця планування:")
 print((" "*4).join(labels_table))
 print("\n".join([" ".join(map(lambda j: "{:<+5}".format(j), rows_table[i])) for i in range(len(rows_table))]))

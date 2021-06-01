@@ -7,6 +7,10 @@ from functools import partial
 
 class FractionalExperiment:
 
+
+
+
+
     def __init__(self, n, m):
         self.n = n
         self.m = m
@@ -47,6 +51,10 @@ class FractionalExperiment:
         y = sum([x[i] * b[i] for i in range(len(x))])
         return y
 
+
+
+
+
     def count_koefs(self):
 
         mx1 = sum(self.x[:, 1]) / self.n
@@ -72,6 +80,8 @@ class FractionalExperiment:
         return B
 
     def dispersion(self):
+
+
 
         res = []
         for i in range(self.n):
@@ -123,7 +133,7 @@ class FractionalExperiment:
         Gp, G_kr = self.kohren()
         print(f'Gp = {Gp}')
         if Gp < G_kr:
-            print(f'З ймовірністю {1 - self.q} дисперсії однорідні.')
+            print(f'З ймовірністю {1 - self.q} дисперсії однорідніл.')
         else:
             print("Необхідно збільшити кількість дослідів")
             self.m += 1
@@ -165,4 +175,6 @@ for _ in range(n):
     experiment = FractionalExperiment(7, 8)
     experiment.check()
     total_sig_coefs_q += experiment.sig_coefs_n
+print("\nКількість значущих коефіцієнтів за {} виконань програми: {}".format(n, total_sig_coefs_q))
+print("\nКількість значущих коефіцієнтів за {} виконань програми: {}".format(n, total_sig_coefs_q))
 print("\nКількість значущих коефіцієнтів за {} виконань програми: {}".format(n, total_sig_coefs_q))
