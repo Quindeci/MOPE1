@@ -34,7 +34,7 @@ public class LabActivityInflater {
     };
 
     private static final String[] MAX_ITERS_VALUES = new String[] {
-            "Немає", "100", "200", "500", "1000"
+            "Немає", "100", "200", "500", "1000", "100000"
     };
 
     public static void inflate(AppCompatActivity activity) {
@@ -51,7 +51,6 @@ public class LabActivityInflater {
 
         final boolean[] itersLimited = new boolean[1];
         final int[] maxIters = new int[1];
-        final int[] Iterations = new int[1];
 
         final Perceptron[] perceptron = new Perceptron[1];
 
@@ -279,7 +278,6 @@ public class LabActivityInflater {
             for (int i = 0; i < points.size(); i++) {
                 perceptron[0].addPoint(points.get(i)[0], points.get(i)[1], moreThanP.get(i));
             }
-            Iterations[0] = points.size();
 
             try {
 
@@ -339,8 +337,6 @@ public class LabActivityInflater {
                     String out = "(" + x1 + ", " + x2 + ")";
                     out += " : ";
                     out += pointMoreThanP ? "Більше P" : "Менше P";
-                    out += "\n Кількість затрачених ітерацій: ";
-                    out += Iterations[0];
 
                     textViewOutputResult.setTextColor(activity.getResources().getColor(R.color.green));
                     textViewOutputResult.setText(out);
