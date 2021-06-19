@@ -30,8 +30,6 @@ public class MainActivityInflater {
 
         View.OnClickListener onButtonCountClick = v -> {
 
-            double time0 = System.nanoTime();
-
             TextView textview_output_result = activity.findViewById(R.id.textview_output_result);
 
             String string_a = String.valueOf(edittext_input_a.getText());
@@ -97,9 +95,6 @@ public class MainActivityInflater {
                 textview_output_result.setTextColor(activity.getResources().getColor(R.color.green));
                 textview_output_result.setText(out);
 
-            }
-            if(System.nanoTime() - time0 > 1){
-                textview_output_result.setText("Помилка!\nЧас виконання завдання\nперевищує 1с");
             }
 
         };
